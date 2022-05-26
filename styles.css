@@ -10,3 +10,13 @@
   width: 200px;
   border: solid black 1px;
 }
+
+.mole {
+  background-color: aquamarine;
+}
+
+.random-mole {
+  width: 100px;
+  height: 30px;
+  background-color: aquamarine;
+}
