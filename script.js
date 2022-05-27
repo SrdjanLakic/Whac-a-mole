@@ -8,6 +8,7 @@ const setMole = document.querySelector(".random-mole");
 
 let result = 0;
 let hitPosition;
+let currentTime = 10;
 
 const randomSquare = function () {
   squares.forEach((square) => {
@@ -31,7 +32,22 @@ squares.forEach((square) => {
 
 const moveMole = function () {
   let timerId = null;
-  timerId = setInterval(randomSquare, 500);
+  timerId = setInterval(randomSquare, 800);
 };
 
-moveMole();
+setMole.addEventListener("click", moveMole);
+
+const countDown = function () {
+  currentTime--;
+  timeLeft.textContent = currentTime;
+  if (currentTime === 0) {
+    clearInterval(countDownTimerId);
+    clearInterval(timerId);
+    alert(`Time is up, your score is ${result}`);
+  }
+};
+
+const startGame = function () {
+  countDown();
+};
+let countDownTimerId = setInterval(countDown, 1000);
