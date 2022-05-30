@@ -51,3 +51,16 @@ function countDownTimer() {
     alert(`Time is up, your final score is ${result}`);
   }
 }
+
+function restartGame() {
+  result = 0;
+  currentTime = 10;
+  clearInterval(moleTimer);
+  clearInterval(timer);
+  score.textContent = result;
+  timeLeft.textContent = currentTime;
+
+  moveMole();
+}
+
+startMole.addEventListener("click", restartGame);
