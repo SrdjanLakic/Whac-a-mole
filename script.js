@@ -9,8 +9,9 @@ const startMole = document.querySelector(".random-mole");
 let result = 0;
 let hitPosition;
 let currentTime = 10;
-let timerId = null;
 let isLocked = false;
+let moleTimer;
+let timer;
 
 const randomSquare = function () {
   squares.forEach((square) => {
@@ -19,39 +20,34 @@ const randomSquare = function () {
   isLocked = false;
   let randomSquare = squares[Math.floor(Math.random() * 9)];
   randomSquare.classList.add("mole");
-
   hitPosition = randomSquare.id;
 };
 
+const moveMole = function () {
+  moleTimer = setInterval(randomSquare, 1000);
+  timer = setInterval(countDownTimer, 1000);
+};
+
+moveMole();
+
 squares.forEach((square) => {
-  square.addEventListener("click", () => {
+  square.addEventListener("mousedown", () => {
     if (square.id === hitPosition) {
       if (isLocked) return;
       result++;
       score.textContent = result;
       square.classList.remove("mole");
       isLocked = true;
-      hitPosition = null;
     }
   });
 });
 
-const moveMole = function (e) {
-  timerId = setInterval(randomSquare, 800);
-};
-
-const countDownTimer = function () {
+function countDownTimer() {
+  currentTime--;
   timeLeft.textContent = currentTime;
   if (currentTime === 0) {
-    clearInterval(countDownTimerId);
-    clearInterval(timerId);
+    clearInterval(moleTimer);
+    clearInterval(timer);
     alert(`Time is up, your final score is ${result}`);
   }
-  currentTime--;
-};
-let countDownTimerId = setInterval(countDownTimer, 1000);
-
-startMole.addEventListener("click", function () {
-  moveMole();
-  countDownTimer();
-});
+}

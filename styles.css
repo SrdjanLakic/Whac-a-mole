@@ -3,16 +3,22 @@
   height: 606px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .square {
   height: 200px;
   width: 200px;
   border: solid black 1px;
+  justify-content: center;
+  align-items: center;
+  background-image: url("mole-hidden.png");
 }
 
 .mole {
-  background-color: aquamarine;
+  background-image: url("mole.png");
 }
 
 .random-mole {
