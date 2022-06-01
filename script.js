@@ -4,11 +4,11 @@ const squares = document.querySelectorAll(".square");
 const mole = document.querySelector(".mole");
 const timeLeft = document.getElementById("time-left");
 const score = document.getElementById("score");
-const startMole = document.querySelector(".random-mole");
+const restartMole = document.querySelector(".restart-mole");
 
 let result = 0;
 let hitPosition;
-let currentTime = 10;
+let currentTime = 15;
 let isLocked = false;
 let moleTimer;
 let timer;
@@ -24,7 +24,7 @@ const randomSquare = function () {
 };
 
 const moveMole = function () {
-  moleTimer = setInterval(randomSquare, 1000);
+  moleTimer = setInterval(randomSquare, 500);
   timer = setInterval(countDownTimer, 1000);
 };
 
@@ -54,7 +54,7 @@ function countDownTimer() {
 
 function restartGame() {
   result = 0;
-  currentTime = 10;
+  currentTime = 15;
   clearInterval(moleTimer);
   clearInterval(timer);
   score.textContent = result;
@@ -63,4 +63,4 @@ function restartGame() {
   moveMole();
 }
 
-startMole.addEventListener("click", restartGame);
+restartMole.addEventListener("click", restartGame);
