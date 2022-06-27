@@ -1,5 +1,16 @@
 .info {
-  margin-left: 980px;
+  margin-top: 1rem;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  font-size: 2rem;
+}
+.result {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
 }
 .grid {
   width: 606px;
