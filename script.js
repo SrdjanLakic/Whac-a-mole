@@ -5,6 +5,7 @@ const mole = document.querySelector('.mole');
 const timeLeft = document.getElementById('time-left');
 const score = document.getElementById('score');
 const restartMole = document.querySelector('.restart-mole');
+const resultDisplay = document.querySelector('.result');
 
 let result = 0;
 let hitPosition;
@@ -46,6 +47,7 @@ function countDownTimer() {
   currentTime--;
   timeLeft.textContent = currentTime;
   if (currentTime === 0) {
+    resultDisplay.textContent = `Your score is ${result} 🏆`;
     clearInterval(moleTimer);
     clearInterval(timer);
   }
