@@ -50,6 +50,7 @@ function countDownTimer() {
     timeLeft.style.color = 'red';
   }
   if (currentTime === 0) {
+    resultDisplay.style.visibility = 'visible';
     resultDisplay.textContent = `Your score is ${result} 🏆`;
     clearInterval(moleTimer);
     clearInterval(timer);
@@ -57,6 +58,7 @@ function countDownTimer() {
 }
 
 function restartGame() {
+  resultDisplay.style.visibility = 'hidden';
   result = 0;
   currentTime = 15;
   clearInterval(moleTimer);
