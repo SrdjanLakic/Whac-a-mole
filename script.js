@@ -46,6 +46,9 @@ squares.forEach((square) => {
 function countDownTimer() {
   currentTime--;
   timeLeft.textContent = currentTime;
+  if (currentTime <= 5) {
+    timeLeft.style.color = 'red';
+  }
   if (currentTime === 0) {
     resultDisplay.textContent = `Your score is ${result} 🏆`;
     clearInterval(moleTimer);
